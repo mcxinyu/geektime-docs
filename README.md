@@ -10,7 +10,7 @@
 
 #### 如果想本地下载播放音视频，推荐部署 [mygeektime](https://github.com/uaxe/mygeektime-pdfs)
 
-### 课程 pdf 文档 [mygeektime-pdf](https://github.com/uaxe/mygeektime-pdfs)
+### 课程 pdf 文档 [geektime-pdf](https://github.com/uaxe/geektime-pdfs)
 
 下载课程pdf：
 ```shell

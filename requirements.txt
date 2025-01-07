@@ -1,0 +1,9 @@
+mkdocs-material
+selenium
+click
+pyyaml
+selenium
+webdriver-manager
+requests
+pypdf
+beautifulsoup4

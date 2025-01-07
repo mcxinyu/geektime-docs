@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -53,81 +53,81 @@ nav:
   
    - 课前准备｜动手实践才是最好的学习方式.md
   
-   - 01｜初识容器_万事开头难.md
+   - 01｜初识容器：万事开头难.md
   
-   - 02｜被隔离的进程_一起来看看容器的本质.md
+   - 02｜被隔离的进程：一起来看看容器的本质.md
   
-   - 03｜容器化的应用_会了这些你就是Docker高手.md
+   - 03｜容器化的应用：会了这些你就是Docker高手.md
   
-   - 04｜创建容器镜像_如何编写正确、高效的Dockerfile.md
+   - 04｜创建容器镜像：如何编写正确、高效的Dockerfile.md
   
-   - 05｜镜像仓库_该怎样用好DockerHub这个宝藏.md
+   - 05｜镜像仓库：该怎样用好Docker Hub这个宝藏.md
   
-   - 06｜打破次元壁_容器该如何与外界互联互通.md
+   - 06｜打破次元壁：容器该如何与外界互联互通.md
   
-   - 07｜实战演练_玩转Docker.md
+   - 07｜实战演练：玩转Docker.md
   
-   - 08｜视频_入门篇实操总结.md
+   - 08｜视频：入门篇实操总结.md
   
-   - 09｜走近云原生_如何在本机搭建小巧完备的Kubernetes环境.md
+   - 09｜走近云原生：如何在本机搭建小巧完备的Kubernetes环境.md
   
-   - 10｜自动化的运维管理_探究Kubernetes工作机制的奥秘.md
+   - 10｜自动化的运维管理：探究Kubernetes工作机制的奥秘.md
   
-   - 加餐｜Kubernetes“弃用Docker”是怎么回事_.md
+   - 加餐｜Kubernetes“弃用Docker”是怎么回事？.md
   
-   - 11｜YAML_Kubernetes世界里的通用语.md
+   - 11｜YAML：Kubernetes世界里的通用语.md
   
-   - 12｜Pod_如何理解这个Kubernetes里最核心的概念_.md
+   - 12｜Pod：如何理解这个Kubernetes里最核心的概念？.md
   
-   - 13｜Job_CronJob_为什么不直接用Pod来处理业务_.md
+   - 13｜Job|CronJob：为什么不直接用Pod来处理业务？.md
   
-   - 14｜ConfigMap_Secret_怎样配置、定制我的应用.md
+   - 14｜ConfigMap|Secret：怎样配置、定制我的应用.md
   
-   - 15｜实战演练_玩转Kubernetes（1）.md
+   - 15｜实战演练：玩转Kubernetes（1）.md
   
-   - 16｜视频_初级篇实操总结.md
+   - 16｜视频：初级篇实操总结.md
   
-   - 17｜更真实的云原生_实际搭建多节点的Kubernetes集群.md
+   - 17｜更真实的云原生：实际搭建多节点的Kubernetes集群.md
   
-   - 18｜Deployment_让应用永不宕机.md
+   - 18｜Deployment：让应用永不宕机.md
   
-   - 19｜Daemonset_忠实可靠的看门狗.md
+   - 19｜Daemonset：忠实可靠的看门狗.md
   
-   - 20｜Service_微服务架构的应对之道.md
+   - 20｜Service：微服务架构的应对之道.md
   
-   - 21｜Ingress_集群进出流量的总管.md
+   - 21｜Ingress：集群进出流量的总管.md
   
-   - 22｜实战演练_玩转Kubernetes（2）.md
+   - 22｜实战演练：玩转Kubernetes（2）.md
   
-   - 23｜视频_中级篇实操总结.md
+   - 23｜视频：中级篇实操总结.md
   
-   - 加餐｜docker-compose_单机环境下的容器编排工具.md
+   - 加餐｜docker-compose：单机环境下的容器编排工具.md
   
-   - 24｜PersistentVolume_怎么解决数据持久化的难题_.md
+   - 24｜PersistentVolume：怎么解决数据持久化的难题？.md
   
-   - 25｜PersistentVolume&#43;NFS_怎么使用网络共享存储_.md
+   - 25｜PersistentVolume + NFS：怎么使用网络共享存储？.md
   
-   - 26｜StatefulSet_怎么管理有状态的应用_.md
+   - 26｜StatefulSet：怎么管理有状态的应用？.md
   
-   - 27｜滚动更新_如何做到平滑的应用升级降级_.md
+   - 27｜滚动更新：如何做到平滑的应用升级降级？.md
   
-   - 28｜应用保障_如何让Pod运行得更健康_.md
+   - 28｜应用保障：如何让Pod运行得更健康？.md
   
-   - 29｜集群管理_如何用名字空间分隔系统资源_.md
+   - 29｜集群管理：如何用名字空间分隔系统资源？.md
   
-   - 30｜系统监控_如何使用MetricsServer和Prometheus_.md
+   - 30｜系统监控：如何使用Metrics Server和Prometheus？.md
   
-   - 31｜网络通信_CNI是怎么回事_又是怎么工作的_.md
+   - 31｜网络通信：CNI是怎么回事？又是怎么工作的？.md
   
-   - 32｜实战演练_玩转Kubernetes（3）.md
+   - 32｜实战演练：玩转Kubernetes（3）.md
   
-   - 33｜视频_高级篇实操总结.md
+   - 33｜视频：高级篇实操总结.md
   
    - 结束语｜是终点，更是起点.md
   
    - 期末测试｜来赴一场满分之约！.md
   
-   - 加餐｜谈谈KongIngressController.md
+   - 加餐｜谈谈Kong Ingress Controller.md
   
-   - 加餐｜尝鲜GatewayAPI_更强大、更灵活、面向未来的Ingress.md
+   - 加餐｜尝鲜Gateway API：更强大、更灵活、面向未来的Ingress.md
   

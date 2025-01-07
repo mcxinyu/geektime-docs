@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -51,43 +51,43 @@ markdown_extensions:
 nav:
    - 开篇词｜重造轮子，探究Tomcat的秘密.md
   
-   - 01｜持久的传奇_Tomcat的发展历程与框架演进.md
+   - 01｜持久的传奇：Tomcat的发展历程与框架演进.md
   
-   - 02｜初出茅庐_构造一个极简的HttpServer.md
+   - 02｜初出茅庐：构造一个极简的HttpServer.md
   
-   - 03｜动态Response_按照规范构造返回流.md
+   - 03｜动态Response：按照规范构造返回流.md
   
-   - 04｜各司其职的Server_拆分响应模块与处理模块.md
+   - 04｜各司其职的Server：拆分响应模块与处理模块.md
   
-   - 05｜Server性能提升_设计多个Processor.md
+   - 05｜Server性能提升：设计多个Processor.md
   
-   - 06｜规范化_引入HttpRequest与HttpResponse.md
+   - 06｜规范化：引入HttpRequest与HttpResponse.md
   
-   - 07｜对内的保护_引入门面模式封装内部实现类.md
+   - 07｜对内的保护：引入门面模式封装内部实现类.md
   
-   - 08｜解析参数_通过引入Cookie和Session避免反复登录.md
+   - 08｜解析参数：通过引入Cookie和Session避免反复登录.md
   
-   - 09｜有状态的Response_实现Session传递与Keep-alive.md
+   - 09｜有状态的Response：实现Session传递与Keep-alive.md
   
-   - 10｜ServletWrapper_如何维护Servlet生命周期及实现容器管理_.md
+   - 10｜Servlet Wrapper：如何维护Servlet生命周期及实现容器管理？.md
   
-   - 11｜多层容器_如何通过实现Context与Wrapper形成多层容器_.md
+   - 11｜ 多层容器：如何通过实现Context与Wrapper形成多层容器？.md
   
-   - 12｜Pipeline与Valve_如何实现容器间的调用、事务管理、权限验证_.md
+   - 12｜Pipeline与Valve：如何实现容器间的调用、事务管理、权限验证？.md
   
-   - 13｜Filter与Listener_如何实现过滤和持续监听_.md
+   - 13｜Filter与Listener：如何实现过滤和持续监听？.md
   
-   - 14｜多应用支持_拆分Context、BootStrap与路由转发.md
+   - 14｜多应用支持：拆分Context、BootStrap与路由转发.md
   
-   - 15｜类加载机制的改变_如何自定义ClassLoader_.md
+   - 15｜类加载机制的改变：如何自定义ClassLoader？.md
   
-   - 16｜大功告成_完成MiniTomcat.md
+   - 16｜大功告成：完成MiniTomcat.md
   
-   - 17｜更大的框架_MiniSpring与MiniTomcat集成.md
+   - 17｜更大的框架：MiniSpring与MiniTomcat集成.md
   
-   - 18｜高并发探讨_如何支持NIO_.md
+   - 18｜高并发探讨：如何支持 NIO？.md
   
-   - 19｜Servlet与NIO的协同_如何在NIO模式下调用Servlet_.md
+   - 19｜Servlet与NIO的协同：如何在NIO模式下调用Servlet？.md
   
    - 结束语｜像地质学家一样奋力往下挖.md
   

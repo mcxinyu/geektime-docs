@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -51,7 +51,7 @@ markdown_extensions:
 nav:
    - 开篇词｜零基础拿下K8s的CKA认证.md
   
-   - 01｜课前准备_Docker容器技术.md
+   - 01｜课前准备：Docker容器技术.md
   
    - 02｜快速了解和搭建K8s集群.md
   
@@ -63,17 +63,17 @@ nav:
   
    - 06｜K8s节点管理与Pod调度.md
   
-   - 07｜无状态应用部署_Deployment.md
+   - 07｜无状态应用部署：Deployment.md
   
    - 08｜不同应用场景下的K8s资源对象.md
   
-   - 09｜网络篇_通过Service访问Pod.md
+   - 09｜网络篇：通过Service访问Pod.md
   
-   - 10｜网络篇_通过Ingress提供URL访问.md
+   - 10｜网络篇：通过Ingress提供URL访问.md
   
-   - 11｜存储_通过数据卷持久化存储文件.md
+   - 11｜存储：通过数据卷持久化存储文件.md
   
-   - 12｜存储_PV的生命周期与动态供应.md
+   - 12｜存储：PV的生命周期与动态供应.md
   
    - 13｜访问K8s集群的安全策略.md
   

@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -49,99 +49,99 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-   - 开篇词｜ToBeaHTTPHero.md
+   - 开篇词｜To Be a HTTP Hero.md
   
-   - 01_时势与英雄_HTTP的前世今生.md
+   - 01 | 时势与英雄：HTTP的前世今生.md
   
-   - 02_HTTP是什么_HTTP又不是什么_.md
+   - 02 | HTTP是什么？HTTP又不是什么？.md
   
-   - 03_HTTP世界全览（上）_与HTTP相关的各种概念.md
+   - 03 | HTTP世界全览（上）：与HTTP相关的各种概念.md
   
-   - 04_HTTP世界全览（下）_与HTTP相关的各种协议.md
+   - 04 | HTTP世界全览（下）：与HTTP相关的各种协议.md
   
-   - 05_常说的“四层”和“七层”到底是什么_“五层”“六层”哪去了_.md
+   - 05 | 常说的“四层”和“七层”到底是什么？“五层”“六层”哪去了？.md
   
-   - 06_域名里有哪些门道_.md
+   - 06 | 域名里有哪些门道？.md
   
-   - 07_自己动手，搭建HTTP实验环境.md
+   - 07 | 自己动手，搭建HTTP实验环境.md
   
-   - 08_键入网址再按下回车，后面究竟发生了什么_.md
+   - 08 | 键入网址再按下回车，后面究竟发生了什么？.md
   
-   - 09_HTTP报文是什么样子的_.md
+   - 09 | HTTP报文是什么样子的？.md
   
-   - 10_应该如何理解请求方法_.md
+   - 10 | 应该如何理解请求方法？.md
   
-   - 11_你能写出正确的网址吗_.md
+   - 11 | 你能写出正确的网址吗？.md
   
-   - 12_响应状态码该怎么用_.md
+   - 12 | 响应状态码该怎么用？.md
   
-   - 13_HTTP有哪些特点_.md
+   - 13 | HTTP有哪些特点？.md
   
-   - 14_HTTP有哪些优点_又有哪些缺点_.md
+   - 14 | HTTP有哪些优点？又有哪些缺点？.md
   
-   - 15_海纳百川_HTTP的实体数据.md
+   - 15 | 海纳百川：HTTP的实体数据.md
   
-   - 16_把大象装进冰箱_HTTP传输大文件的方法.md
+   - 16 | 把大象装进冰箱：HTTP传输大文件的方法.md
   
-   - 17_排队也要讲效率_HTTP的连接管理.md
+   - 17 | 排队也要讲效率：HTTP的连接管理.md
   
-   - 18_四通八达_HTTP的重定向和跳转.md
+   - 18 | 四通八达：HTTP的重定向和跳转.md
   
-   - 19_让我知道你是谁_HTTP的Cookie机制.md
+   - 19 | 让我知道你是谁：HTTP的Cookie机制.md
   
-   - 20_生鲜速递_HTTP的缓存控制.md
+   - 20 | 生鲜速递：HTTP的缓存控制.md
   
-   - 21_良心中间商_HTTP的代理服务.md
+   - 21 | 良心中间商：HTTP的代理服务.md
   
-   - 22_冷链周转_HTTP的缓存代理.md
+   - 22 | 冷链周转：HTTP的缓存代理.md
   
-   - 23_HTTPS是什么_SSL_TLS又是什么_.md
+   - 23 | HTTPS是什么？SSL|TLS又是什么？.md
   
-   - 24_固若金汤的根本（上）_对称加密与非对称加密.md
+   - 24 | 固若金汤的根本（上）：对称加密与非对称加密.md
   
-   - 25_固若金汤的根本（下）_数字签名与证书.md
+   - 25 | 固若金汤的根本（下）：数字签名与证书.md
   
-   - 26_信任始于握手_TLS1.2连接过程解析.md
+   - 26 | 信任始于握手：TLS1.2连接过程解析.md
   
-   - 27_更好更快的握手_TLS1.3特性解析.md
+   - 27 | 更好更快的握手：TLS1.3特性解析.md
   
-   - 28_连接太慢该怎么办_HTTPS的优化.md
+   - 28 | 连接太慢该怎么办：HTTPS的优化.md
   
-   - 29_我应该迁移到HTTPS吗_.md
+   - 29 | 我应该迁移到HTTPS吗？.md
   
-   - 30_时代之风（上）_HTTP_2特性概览.md
+   - 30 | 时代之风（上）：HTTP|2特性概览.md
   
-   - 31_时代之风（下）_HTTP_2内核剖析.md
+   - 31 | 时代之风（下）：HTTP|2内核剖析.md
   
-   - 32_未来之路_HTTP_3展望.md
+   - 32 | 未来之路：HTTP|3展望.md
   
-   - 33_我应该迁移到HTTP_2吗_.md
+   - 33 | 我应该迁移到HTTP|2吗？.md
   
-   - 34_Nginx_高性能的Web服务器.md
+   - 34 | Nginx：高性能的Web服务器.md
   
-   - 35_OpenResty_更灵活的Web服务器.md
+   - 35 | OpenResty：更灵活的Web服务器.md
   
-   - 36_WAF_保护我们的网络服务.md
+   - 36 | WAF：保护我们的网络服务.md
   
-   - 37_CDN_加速我们的网络服务.md
+   - 37 | CDN：加速我们的网络服务.md
   
-   - 38_WebSocket_沙盒里的TCP.md
+   - 38 | WebSocket：沙盒里的TCP.md
   
-   - 39_HTTP性能优化面面观（上）.md
+   - 39 | HTTP性能优化面面观（上）.md
   
-   - 40_HTTP性能优化面面观（下）.md
+   - 40 | HTTP性能优化面面观（下）.md
   
-   - 41_Linux_Mac实验环境搭建与URI查询参数.md
+   - 41 | Linux|Mac实验环境搭建与URI查询参数.md
   
-   - 42_DHE_ECDHE算法的原理.md
+   - 42 | DHE|ECDHE算法的原理.md
   
-   - 43_如何进行Docker实验环境搭建_.md
+   - 43 | 如何进行Docker实验环境搭建？.md
   
-   - 44_先睹为快_HTTP_3实验版本长什么样子_.md
+   - 44 | 先睹为快：HTTP|3实验版本长什么样子？.md
   
-   - 罗剑锋老师出新课了_.md
+   - 罗剑锋老师出新课了？.md
   
-   - 结束语_做兴趣使然的Hero.md
+   - 结束语 | 做兴趣使然的Hero.md
   
-   - 结课测试_这些HTTP协议知识，你真的掌握了吗_.md
+   - 结课测试 | 这些HTTP协议知识，你真的掌握了吗？.md
   

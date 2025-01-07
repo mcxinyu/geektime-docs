@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -49,17 +49,17 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-   - 开篇词｜AI&#43;云原生_孔明与刘备的互相成就.md
+   - 开篇词｜AI+云原生：孔明与刘备的互相成就.md
   
-   - 01｜Agent的前辈_FunctionCalling.md
+   - 01｜Agent的前辈：Function Calling.md
   
-   - 02｜Agent的原理_什么是AIAgent_.md
+   - 02｜Agent的原理：什么是AI Agent？.md
   
-   - 03｜Agent的常见推理模式_CoT、ReAct、Reflexion究竟是什么_.md
+   - 03｜Agent的常见推理模式：CoT、ReAct、Reflexion究竟是什么？.md
   
-   - 04｜实践篇_用Go语言实现一个简单Agent.md
+   - 04｜实践篇：用Go语言实现一个简单Agent.md
   
-   - 05｜设计_用自然语言调用Agent操控K8s.md
+   - 05｜设计：用自然语言调用Agent操控K8s.md
   
    - 06｜client-go进阶玩法之RestMapper.md
   

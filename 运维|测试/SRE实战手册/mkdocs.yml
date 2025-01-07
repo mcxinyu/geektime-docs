@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -49,27 +49,27 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-   - 开篇词｜SRE是解决系统稳定性问题的灵丹妙药吗_.md
+   - 开篇词｜SRE是解决系统稳定性问题的灵丹妙药吗？.md
   
-   - 01｜SRE迷思_无所不能的角色_还是运维的升级_.md
+   - 01｜SRE迷思：无所不能的角色？还是运维的升级？.md
   
-   - 02_系统可用性_没有故障，系统就一定是稳定的吗_.md
+   - 02 | 系统可用性：没有故障，系统就一定是稳定的吗？.md
   
-   - 03_SRE切入点_选择SLI，设定SLO.md
+   - 03 | SRE切入点：选择SLI，设定SLO.md
   
-   - 04_错误预算_达成稳定性目标的共识机制.md
+   - 04 | 错误预算：达成稳定性目标的共识机制.md
   
-   - 05_案例_落地SLO时还需要考虑哪些因素_.md
+   - 05 | 案例：落地SLO时还需要考虑哪些因素？.md
   
-   - 06_故障发现_如何建设On-Call机制_.md
+   - 06 | 故障发现：如何建设On-Call机制？.md
   
-   - 07｜故障处理_一切以恢复业务为最高优先级.md
+   - 07｜故障处理：一切以恢复业务为最高优先级.md
   
-   - 08｜故障复盘_黄金三问与判定三原则.md
+   - 08｜故障复盘：黄金三问与判定三原则.md
   
-   - 09｜案例_互联网典型的SRE组织架构是怎样的_.md
+   - 09｜案例：互联网典型的SRE组织架构是怎样的？.md
   
-   - 10_经验_都有哪些高效的SRE组织协作机制_.md
+   - 10 | 经验：都有哪些高效的SRE组织协作机制？.md
   
    - 结束语｜聊聊我的SRE落地心路历程.md
   

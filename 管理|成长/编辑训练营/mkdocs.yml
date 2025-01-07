@@ -36,7 +36,7 @@ extra:
   version:
     provider: mike
 
-copyright: Copyright &copy; 2024-Present zkep
+copyright: Copyright © 2024-Present zkep
 repo_url: https://github.com/zkep/mygeektime
 
 markdown_extensions:
@@ -49,21 +49,21 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-   - 开篇词_把内容交付这件事做好.md
+   - 开篇词 | 把内容交付这件事做好.md
   
-   - 01_为什么说编辑要重视文字规范_.md
+   - 01 | 为什么说编辑要重视文字规范？.md
   
-   - 02_如何发现并纠正文章语病_.md
+   - 02 | 如何发现并纠正文章语病？.md
   
-   - 03_到底该怎么理解技术采用生命周期_.md
+   - 03 | 到底该怎么理解技术采用生命周期？.md
   
-   - 04_如何取一个好的文章标题_.md
+   - 04 | 如何取一个好的文章标题？.md
   
-   - 05_怎么才能写出一篇好新闻_.md
+   - 05 | 怎么才能写出一篇好新闻？.md
   
-   - 06_和专家沟通出现冲突时，我该怎么办_.md
+   - 06 | 和专家沟通出现冲突时，我该怎么办？.md
   
-   - 07_如何快速找到各个领域的专家_.md
+   - 07 | 如何快速找到各个领域的专家？.md
   
-   - 08_如何制作出一张清晰且美观的配图_.md
+   - 08 | 如何制作出一张清晰且美观的配图？.md
   

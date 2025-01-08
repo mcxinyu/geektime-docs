@@ -79,7 +79,7 @@ def worker(driver, uri, timeout):
     temp_height = 0
     while True:
         driver.execute_script("window.scrollBy(0,100)")
-        driver.implicitly_wait(0.1)
+        driver.implicitly_wait(0.2)
         check_height = driver.execute_script(
             "return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;",
         )
@@ -241,7 +241,7 @@ def make_all_pdf(source, output, timeout, compress, power, port):
                     os.rename(pdf_path, output_path)
                     break
                 except Exception as e:
-                    print(f"exception: {e}")
+                    print(f"exception: {e}, traceback: {traceback.format_exc()}")
                     if 'No such file or directory' in str(e):
                         driver.quit()
                         os.popen("lsof -i:" + str(port) + " | grep -v 'PID' | awk '{print $2}' |  xargs kill -9")

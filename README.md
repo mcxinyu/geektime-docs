@@ -15,14 +15,14 @@
 git clone https://github.com/uaxe/geektime-pdfs.git
 ```
 
-### 课程 markdown 文档
+### markdown 文档
 
 ```shell
 git clone https://github.com/uaxe/geektime-docs.git  --depth 1
 
 pip install mkdocs-material
 
-cd 后端\|架构/说透中台/
+cd geektime-docs/后端\|架构/说透中台/
 
 mkdocs serve
 ```

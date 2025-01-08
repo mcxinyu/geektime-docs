@@ -8,7 +8,7 @@
 
 ####  本地下载播放音视频，推荐部署 [mygeektime](https://github.com/zkep/mygeektime)
 
-### [极客课程 pdf文档] (https://github.com/uaxe/geektime-pdfs)
+### [极客课程 PDF 文档](https://github.com/uaxe/geektime-pdfs)
 
 下载课程pdf：
 ```shell

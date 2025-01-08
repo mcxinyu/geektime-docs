@@ -65,7 +65,7 @@ nav:
   
    - 06 | auto|decltype：为什么要有自动类型推导？.md
   
-   - 07 | const|volatile|mutable：常量/变量究竟是怎么回事？.md
+   - 07 | const|volatile|mutable：常量|变量究竟是怎么回事？.md
   
    - 08 | smart_ptr：智能指针到底“智能”在哪里？.md
   

@@ -103,7 +103,7 @@ nav:
   
    - 26 | Pipeline：Beam如何抽象多步骤的数据流水线？.md
   
-   - 27 | Pipeline I|O: Beam数据中转的设计模式.md
+   - 27 | Pipeline I|O：Beam数据中转的设计模式.md
   
    - 28 | 如何设计创建好一个Beam Pipeline？.md
   

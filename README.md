@@ -1,19 +1,14 @@
 ## 极客时间文档
 
-极客时间 markdown | pdf 文档
+极客时间 markdown & pdf 文档
 
 ----
 
-####  注意⚠️：
 
-####  本地下载播放音视频，推荐部署 [mygeektime](https://github.com/zkep/mygeektime)
+* 看 markdown文档，推荐: https://github.com/uaxe/geektime-docs 🌟🌟🌟
+* 看 pdf文档，推荐: https://github.com/uaxe/geektime-pdfs 🌟🌟🌟
+* 看 音视频，推荐: https://github.com/zkep/mygeektime 🌟🌟🌟🌟🌟
 
-### [极客课程 PDF 文档](https://github.com/uaxe/geektime-pdfs)
-
-下载课程pdf：
-```shell
-git clone https://github.com/uaxe/geektime-pdfs.git
-```
 
 ### markdown 文档
 
@@ -29,6 +24,7 @@ mkdocs serve
 
 浏览器访问：<http://127.0.0.1:8000/>
 
+<img src="md.png" width="800px"/>
 
 ### 本地生成pdf文档
 ```shell

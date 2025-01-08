@@ -192,6 +192,8 @@ def make_all_pdf(source, output, timeout, compress, power, port):
 
                     pdfs = []
                     for nav in ["index.md"] + navs:
+                        if not isinstance(nav, str):
+                            raise ValueError(dirname + nav)
                         base_name = os.path.splitext(nav)[0]
                         target = os.path.join(part_dir, base_name.replace('%', "")  + ".pdf")
                         uri = host if base_name == "index" else host + html.escape(base_name)

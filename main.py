@@ -561,8 +561,8 @@ def heya(ctx):
 
 heya.add_command(make_pdf)
 heya.add_command(make_all_pdf)
-heya.add_command(sayhi)
-heya.add_command(sayhi_email)
+# heya.add_command(sayhi)
+# heya.add_command(sayhi_email)
 
 def main() -> int:
     return heya(auto_envvar_prefix="HEYA")

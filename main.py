@@ -2,7 +2,6 @@ import base64
 import html
 import json
 import os
-import ssl
 import subprocess
 import sys
 import re
@@ -18,7 +17,6 @@ import click
 import yaml
 import pickle
 import smtplib
-from email.message import EmailMessage
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -114,6 +112,8 @@ def head(uri):
     except Exception as e:
         print(f'head error: {e}, {uri}')
 
+
+
 @click.command("all_pdf")
 @click.option(
     "-i",
@@ -182,9 +182,6 @@ def make_all_pdf(source, output, timeout, compress, power, port):
                     data = yaml.safe_load(open(fpath))
                     print(f'dirname: {dirname}')
                     navs = data.get('nav')
-                    for idx, nav in enumerate(navs):
-                        navs[idx] = html.unescape(nav)
-
                     proc = subprocess.Popen(
                         ["mkdocs", "serve", "--no-livereload", "-a", f"127.0.0.1:{port}"],
                              cwd=dirname,  stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -196,8 +193,8 @@ def make_all_pdf(source, output, timeout, compress, power, port):
                     pdfs = []
                     for nav in ["index.md"] + navs:
                         base_name = os.path.splitext(nav)[0]
-                        target = os.path.join(part_dir, base_name + ".pdf")
-                        uri = host if base_name == "index" else host + base_name
+                        target = os.path.join(part_dir, base_name.replace('%', "")  + ".pdf")
+                        uri = host if base_name == "index" else host + html.escape(base_name)
                         mk_path = os.path.join(dirname, "docs", base_name+'.md')
                         mk_data = open(mk_path).read()
                         matches = re.findall(pattern, mk_data)
@@ -211,7 +208,7 @@ def make_all_pdf(source, output, timeout, compress, power, port):
                         if os.path.exists(target):
                             pdfs.append((target, base_name, mk_data, images))
                             continue
-                        with ThreadPoolExecutor(max_workers=9) as executor:
+                        with ThreadPoolExecutor(max_workers=3) as executor:
                             for img_url in images:
                                 executor.submit(head, img_url)
 
@@ -231,12 +228,13 @@ def make_all_pdf(source, output, timeout, compress, power, port):
                     merger = PdfWriter()
                     for (pdf, name, text, images) in pdfs:
                         merger.append(pdf)
-
-                    pdf_path = os.path.join(dirname, os.path.basename(dirname) + ".pdf")
+                    pdf_base_name = os.path.basename(dirname).replace('%', "")
+                    pdf_name = f"{pdf_base_name}.pdf"
+                    pdf_path = os.path.join(dirname, pdf_name)
                     merger.write(pdf_path)
                     print(f"writing pdf {pdf_path}")
                     merger.close()
-                    output_path = f'{output}/{os.path.basename(os.path.dirname(dirname))}/{os.path.basename(dirname)}.pdf'
+                    output_path = f'{output}/{os.path.basename(os.path.dirname(dirname))}/{pdf_name}'
                     if not os.path.exists(os.path.dirname(output_path)):
                         os.makedirs(os.path.dirname(output_path), exist_ok=True)
                     print(output_path)
@@ -280,7 +278,14 @@ def make_all_pdf(source, output, timeout, compress, power, port):
     default=0,
     help="power of the compression. Default value is 0. This can be 0: default, 1: prepress, 2: printer, 3: ebook, 4: screen",
 )
-def make_pdf(source, timeout, compress, power):
+@click.option(
+    "-a",
+    "--port",
+    type=int,
+    default=8000,
+    help="mkdocs port. Default value is 8000",
+)
+def make_pdf(source, timeout, compress, power, port):
     webdriver_options = Options()
     webdriver_prefs = {}
     webdriver_prefs["profile.default_content_settings"] = {"images": 2}
@@ -293,7 +298,7 @@ def make_pdf(source, timeout, compress, power):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=webdriver_options)
 
-    host = "http://127.0.0.1:8000/"
+    host = f"http://127.0.0.1:{port}/"
     parts_dir = os.path.join(source, "parts")
     pattern = r'https?://[^\s]+'
     fpath = os.path.join(source, "mkdocs.yml")
@@ -313,8 +318,8 @@ def make_pdf(source, timeout, compress, power):
     navs = ["index.md"] + data.get('nav')
     for nav in navs:
         base_name = os.path.splitext(nav)[0]
-        target = os.path.join(part_dir, base_name + ".pdf")
-        uri = host if base_name == "index" else host + base_name
+        target = os.path.join(part_dir, base_name.replace('%', "") + ".pdf")
+        uri = host if base_name == "index" else host + html.escape(base_name)
         mk_path = os.path.join(source, "docs", nav)
         mk_data = open(mk_path).read()
         matches = re.findall(pattern, mk_data)
@@ -354,7 +359,8 @@ def make_pdf(source, timeout, compress, power):
     for (pdf, name, text, images) in pdfs:
         merger.append(pdf)
 
-    pdf_path = os.path.join(source, os.path.basename(source) + ".pdf")
+    pdf_base_name = os.path.basename(source).replace('%','')
+    pdf_path = os.path.join(source, pdf_base_name + ".pdf")
     merger.write(pdf_path)
     print(f"writing pdf {pdf_path}")
     merger.close()
@@ -501,26 +507,30 @@ def sayhi(
         data = pickle.load(f)
         for k, v in data.items():
             try:
-                text =f'''
-                <html>
-                    <body>
-                    
-                    <h2> {project} </h2>
-                    
-                    <p>你好！👋： <b>{k}</b></p>    
-                    
-                    <p>由于近期 geektime-books 项目许多用户反馈图片和电子书链接失效，影响阅读体验</p> 
-                    
-                    <p> 在此推荐极客时间markdown & pdf 文档的项目给你，欢迎关注，🌟star，请及时保存 </p> 
-                   
-                    <a href='https://github.com/uaxe/geektime-docs'>geektime-docs</a>：支持markdown和pdf两种阅读方式 
-                    
-                    <p>满足你的日常学习需求</p> 
-                    
-                    <p>同时欢迎在使用过程中，积极提交issue, 以便让项目更好的完善</p> 
-                    </body>
-                </html>
-                '''
+                text = f'''
+                         <html>
+                             <body>
+
+                             <h2> {project} </h2>
+
+                             <p>你好！👋： <b>{k}</b></p>
+
+                             <p>由于近期 geektime-books 项目许多用户反馈图片和电子书链接失效，影响阅读体验</p>
+
+                             <p> 在此推荐极客时间markdown & pdf 文档的项目给你，欢迎关注，🌟star，请及时保存 </p>
+
+                             <p> <a href='https://github.com/uaxe/geektime-docs'>geektime-docs</a>：支持markdown阅读方式</p>
+
+                             <p> <a href='https://github.com/uaxe/geektime-pdfs'>geektime-pdfs</a>：支持pdf阅读方式</p>
+
+                             <p> <a href='https://github.com/zkep/mygeektime'>mygeektime</a>：支持音视频下载在线播放</p>
+
+                             <p>多种方式满足你的日常学习需求</p>
+
+                             <p>同时欢迎在使用过程中，积极提交issue, 以便让项目更好的完善</p>
+                             </body>
+                         </html>
+                         '''
                 msg = MIMEMultipart()
                 msg.attach(MIMEText(text, 'html', 'utf-8'))
                 msg["From"] = email_from
@@ -538,12 +548,9 @@ def sayhi(
                 with smtplib.SMTP_SSL(email_host, email_port, timeout=3) as smtp:
                     smtp.login(email_user, email_password)
                     smtp.send_message(msg)
-                time.sleep(3)
+                time.sleep(5)
             except Exception as e:
                 print(f'say_hi error: {e}, {traceback.format_exc()}')
-            finally:
-                smtp.quit()
-
         print(f'total: {len(data.items())}')
 
 @click.group(invoke_without_command=True)

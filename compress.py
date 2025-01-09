@@ -3,8 +3,6 @@ import sys
 import subprocess
 import tempfile
 
-from shutil import rmtree
-
 
 def compress(source: str, target: str, power: int = 0):
     """

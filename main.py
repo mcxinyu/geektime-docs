@@ -5,19 +5,12 @@ import os
 import subprocess
 import sys
 import re
-import time
 import traceback
-from concurrent.futures import ThreadPoolExecutor
-from email import encoders
-from email.mime.base import MIMEBase
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-
 import click
 import yaml
-import pickle
-import smtplib
-from bs4 import BeautifulSoup
+import requests
+
+from concurrent.futures import ThreadPoolExecutor
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -26,7 +19,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import staleness_of
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from pypdf import PdfWriter
@@ -368,193 +360,6 @@ def make_pdf(source, timeout, compress, power, port):
     merger.close()
 
 
-@click.command("sayhi_email")
-@click.option(
-    "-i",
-    "--repo",
-    required=True,
-    default="https://github.com/it-ebooks-0/geektime-books/stargazers",
-    help="repo is github repositories",
-)
-@click.option(
-    "-c",
-    "--github_cookie",
-    required=True,
-    default=os.getenv("GITHUB_COOKIE"),
-    help="repo is github repositories",
-)
-@click.option(
-    "-o",
-    "--pkl",
-    required=True,
-    default='email.pkl',
-    help="email file",
-)
-def sayhi_email(repo, github_cookie, pkl):
-    print(f"hello {repo}, github_cookie: {github_cookie}, pkl: {pkl}")
-    page = 0
-    timeout = 10
-    headers = {
-        'User-Agent': 'Mozilla/5.0',
-        "Cookie": github_cookie,
-    }
-    proxies = {
-        'http': 'socks5://127.0.0.1:1080',
-        'https': 'socks5://127.0.0.1:1080',
-    }
-    data = {}
-    while True:
-        try:
-            page += 1
-            resp = requests.get(f'{repo}?page={page}', timeout=timeout, headers=headers, proxies=proxies)
-            if resp.status_code != 200:
-                print(f'say_hi status_code: {resp.status_code}, {repo}')
-                break
-            soup = BeautifulSoup(resp.text, 'html.parser')
-            links = soup.find_all('a', class_='d-inline-block', attrs={'data-hovercard-type': 'user'})
-            if not links:
-                break
-            for link in links:
-                user_name = link['href'].split('/')[-1]
-                user_url = 'https://github.com/'+user_name
-                ret = requests.get(user_url, timeout=timeout, headers=headers, proxies=proxies)
-                if ret.status_code != 200:
-                    print(f'say_hi status_code: {ret.status_code}, {user_url}')
-                    continue
-                soup = BeautifulSoup(ret.text, 'html.parser')
-                link = soup.find('li', attrs={'itemprop': 'email'})
-                if link:
-                    email = link.find('a', class_='Link--primary').text
-                    if user_name not in data:
-                        data[user_name] = email
-                        print(user_name, email)
-                else:
-                   print(f'say_hi no email: {user_url}, page: {page}')
-                time.sleep(0.2)
-        except Exception as e:
-            print(f'say_hi error: {e}, {repo}')
-
-    with open(pkl, 'wb') as f:
-        pickle.dump(data, f)
-
-@click.command("sayhi")
-@click.option(
-    "-i",
-    "--pkl",
-    required=True,
-    default='email.pkl',
-    help="email file",
-)
-@click.option(
-    "-n",
-    "--project",
-    required=True,
-    default=os.getenv("PROJECT"),
-    help="project",
-)
-@click.option(
-    "-f",
-    "--email_from",
-    required=True,
-    default=os.getenv("EMAIL_FROM"),
-    help="email from",
-)
-@click.option(
-    "-h",
-    "--email_host",
-    required=True,
-    default=os.getenv("EMAIL_HOST"),
-    help="email FROM",
-)
-@click.option(
-    "-p",
-    "--email_port",
-    required=True,
-    type=int,
-    default=os.getenv("EMAIL_PORT"),
-    help="email port",
-)
-@click.option(
-    "-u",
-    "--email_user",
-    required=True,
-    default=os.getenv("EMAIL_USER"),
-    help="email user",
-)
-@click.option(
-    "-d",
-    "--email_password",
-    required=True,
-    default=os.getenv("EMAIL_PASSWORD"),
-    help="email password",
-)
-@click.option(
-    "-a",
-    "--attch_path",
-    required=True,
-    help="email attch path",
-)
-def sayhi(
-        pkl,
-        project,
-        email_from,
-        email_host,
-        email_port,
-        email_user,
-        email_password,
-        attch_path,
-):
-    print(f"hello {pkl}")
-    with open(pkl, 'rb') as f:
-        data = pickle.load(f)
-        for k, v in data.items():
-            try:
-                text = f'''
-                         <html>
-                             <body>
-
-                             <h2> {project} </h2>
-
-                             <p>你好！👋： <b>{k}</b></p>
-
-                             <p>由于近期 geektime-books 项目许多用户反馈图片和电子书链接失效，影响阅读体验</p>
-
-                             <p> 在此推荐极客时间markdown & pdf 文档的项目给你，欢迎关注，🌟star，请及时保存 </p>
-
-                             <p> <a href='https://github.com/uaxe/geektime-docs'>geektime-docs</a>：支持markdown阅读方式</p>
-
-                             <p> <a href='https://github.com/uaxe/geektime-pdfs'>geektime-pdfs</a>：支持pdf阅读方式</p>
-
-                             <p> <a href='https://github.com/zkep/mygeektime'>mygeektime</a>：支持音视频下载在线播放</p>
-
-                             <p>多种方式满足你的日常学习需求</p>
-
-                             <p>同时欢迎在使用过程中，积极提交issue, 以便让项目更好的完善</p>
-                             </body>
-                         </html>
-                         '''
-                msg = MIMEMultipart()
-                msg.attach(MIMEText(text, 'html', 'utf-8'))
-                msg["From"] = email_from
-                msg["To"] = v
-                msg["Subject"] = f"{project}"
-
-                if os.path.exists(attch_path):
-                    base_name = os.path.basename(attch_path)
-                    with open(attch_path, 'rb') as f:
-                        mimebase = MIMEBase(os.path.splitext(base_name)[0], 'jpg')
-                        mimebase.add_header('Content-Disposition', 'attachment', filename=base_name)
-                        mimebase.set_payload(f.read())
-                        encoders.encode_base64(mimebase)
-                        msg.attach(mimebase)
-                with smtplib.SMTP_SSL(email_host, email_port, timeout=3) as smtp:
-                    smtp.login(email_user, email_password)
-                    smtp.send_message(msg)
-                time.sleep(5)
-            except Exception as e:
-                print(f'say_hi error: {e}, {traceback.format_exc()}')
-        print(f'total: {len(data.items())}')
-
 @click.group(invoke_without_command=True)
 @click.pass_context
 def heya(ctx):
@@ -563,8 +368,7 @@ def heya(ctx):
 
 heya.add_command(make_pdf)
 heya.add_command(make_all_pdf)
-# heya.add_command(sayhi)
-# heya.add_command(sayhi_email)
+
 
 def main() -> int:
     return heya(auto_envvar_prefix="HEYA")
